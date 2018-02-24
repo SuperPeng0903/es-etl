@@ -2,6 +2,8 @@ package com.hfcsbc.esetl.domain;
 
 import lombok.Data;
 import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -18,5 +20,6 @@ public class Person {
     private Long id;
     private String name;
     @OneToOne
+    @Field(type = FieldType.Nested)
     private Address address;
 }
